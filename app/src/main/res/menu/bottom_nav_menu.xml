@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_support"
+        android:icon="@drawable/ic_nav_support"
+        android:title="Hỗ trợ" />
+
+    <item
+        android:id="@+id/nav_ai"
+        android:icon="@drawable/ic_nav_ai"
+        android:title="Be My AI" />
+
+    <item
+        android:id="@+id/nav_directory"
+        android:icon="@drawable/ic_nav_directory"
+        android:title="Danh bạ" />
+
+    <item
+        android:id="@+id/nav_community"
+        android:icon="@drawable/ic_nav_community"
+        android:title="Community" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_nav_settings"
+        android:title="Cài đặt" />
+
+</menu>

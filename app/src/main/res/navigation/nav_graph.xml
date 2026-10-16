@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.eyeconnect.presentation.splash.SplashFragment"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splash_to_introduceFragment"
+            app:destination="@id/introduceFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_ai"
+        android:name="com.example.eyeconnect.presentation.home.AIFragment"
+        android:label="Be My AI" />
+
+    <fragment
+        android:id="@+id/nav_support"
+        android:name="com.example.eyeconnect.presentation.home.SupportFragment"
+        android:label="Hỗ trợ" />
+
+    <fragment
+        android:id="@+id/nav_directory"
+        android:name="com.example.eyeconnect.presentation.home.DirectoryFragment"
+        android:label="Danh bạ" />
+
+    <fragment
+        android:id="@+id/nav_community"
+        android:name="com.example.eyeconnect.presentation.home.CommunityFragment"
+        android:label="Community" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.eyeconnect.presentation.home.SettingsFragment"
+        android:label="Cài đặt" />
+    <fragment
+        android:id="@+id/introduceFragment"
+        android:name="com.example.eyeconnect.presentation.splash.IntroduceFragment"
+        android:label="IntroduceFragment" >
+        <action
+            android:id="@+id/action_introduceFragment_to_nav_support"
+            app:destination="@id/nav_support" />
+    </fragment>
+
+</navigation>
