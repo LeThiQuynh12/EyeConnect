@@ -37,6 +37,10 @@ android {
     buildFeatures {
         compose = true
         viewBinding = true
+        mlModelBinding = true
+    }
+    aaptOptions {
+        noCompress("tflite")
     }
 }
 
@@ -78,4 +82,12 @@ dependencies {
     implementation("androidx.camera:camera-camera2:$cameraXVersion")
     implementation("androidx.camera:camera-lifecycle:$cameraXVersion")
     implementation("androidx.camera:camera-view:$cameraXVersion")
+
+    //  Google ML Kit Text Recognition V2
+    implementation("com.google.android.gms:play-services-mlkit-text-recognition:19.0.1")
+
+    // Thư viện TensorFlow Lite hỗ trợ xử lý ảnh trực tiếp
+    implementation("org.tensorflow:tensorflow-lite:2.14.0")
+    implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
+
 }
