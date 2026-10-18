@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -21,6 +22,9 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
+    // Biến nhận vai trò được truyền từ LoginFragment sang
+    private var selectedRole: String = "VISUALLY_IMPAIRED"
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,9 +37,13 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Quay lại màn đăng nhập
+        // 1. Nhận Role từ Bundle truyền sang (mặc định VISUALLY_IMPAIRED nếu null)
+        selectedRole = arguments?.getString("SELECTED_ROLE") ?: "VISUALLY_IMPAIRED"
+
+        // Quay lại màn đăng nhập (kèm lại Role)
         binding.btnToLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            val bundle = bundleOf("SELECTED_ROLE" to selectedRole)
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment, bundle)
         }
 
         // Bấm Đăng ký
@@ -55,23 +63,32 @@ class RegisterFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            register(name, email, pass)
+            register(name, email, pass, selectedRole)
         }
     }
 
-    private fun register(name: String, email: String, pass: String) {
+    private fun register(name: String, email: String, pass: String, role: String) {
         binding.btnRegister.isEnabled = false
 
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                val req = RegisterRequest(name = name, email = email, password = pass, role = "VISUALLY_IMPAIRED")
+                // 2. Gán đúng role nhận được vào request gửi lên backend
+                val req = RegisterRequest(
+                    name = name,
+                    email = email,
+                    password = pass,
+                    role = role
+                )
                 val response = RetrofitClient.authService.register(req)
 
                 withContext(Dispatchers.Main) {
                     binding.btnRegister.isEnabled = true
                     if (response.isSuccessful && response.body()?.success == true) {
                         Toast.makeText(requireContext(), "Đăng ký thành công! Vui lòng đăng nhập", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+
+                        // 3. Chuyển về màn hình đăng nhập và tiếp tục giữ lại role này
+                        val bundle = bundleOf("SELECTED_ROLE" to role)
+                        findNavController().navigate(R.id.action_registerFragment_to_loginFragment, bundle)
                     } else {
                         val err = response.body()?.message ?: "Đăng ký thất bại"
                         Toast.makeText(requireContext(), err, Toast.LENGTH_SHORT).show()

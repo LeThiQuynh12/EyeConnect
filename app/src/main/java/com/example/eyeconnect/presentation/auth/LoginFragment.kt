@@ -1,6 +1,7 @@
 package com.example.eyeconnect.presentation.auth
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.example.eyeconnect.R
 import com.example.eyeconnect.data.remote.LoginRequest
 import com.example.eyeconnect.data.remote.RetrofitClient
 import com.example.eyeconnect.databinding.FragmentLoginBinding
+import com.example.eyeconnect.presentation.volunteer.VolunteerMainActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -86,10 +88,21 @@ class LoginFragment : Fragment() {
 
                         // Điều hướng dựa theo Role thực tế của tài khoản từ server
                         if (actualRole == "VOLUNTEER") {
-                            findNavController().navigate(R.id.action_loginFragment_to_nav_support)
+                            // 1. Chuyển sang màn hình Tình nguyện viên (Activity riêng)
+                            val intent = Intent(
+                                requireContext(),
+                                VolunteerMainActivity::class.java
+                            ).apply {
+                                // Xoá ngăn xếp MainActivity cũ để khi bấm nút Back không bị quay lại màn hình Login
+                                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            }
+                            startActivity(intent)
+                            requireActivity().finish()
                         } else {
+                            // 2. Người khiếm thị: Tiếp tục trong MainActivity (Dùng NavController vào màn Hỗ trợ hoặc AI)
                             findNavController().navigate(R.id.action_loginFragment_to_nav_support)
                         }
+
                     } else {
                         val err = response.body()?.message ?: "Đăng nhập thất bại"
                         Toast.makeText(requireContext(), err, Toast.LENGTH_SHORT).show()
