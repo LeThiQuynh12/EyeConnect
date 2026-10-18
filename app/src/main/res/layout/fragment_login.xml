@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FC"
+    android:fillViewport="true"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp">
+
+        <!-- EyeConnect Illustration -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_illustration_card">
+
+            <com.example.eyeconnect.presentation.view.EyeIllustrationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp" />
+
+        </FrameLayout>
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:importantForAccessibility="yes"
+            android:text="Đăng nhập"
+            android:textColor="#172D59"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="Chào mừng bạn quay trở lại!"
+            android:textColor="#405477"
+            android:textSize="15sp" />
+
+        <!-- Email Label -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:labelFor="@id/etEmail"
+            android:text="Địa chỉ email"
+            android:textColor="#172D59"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Email Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_edittext_outline"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="#405477">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="emailAddress"
+                android:hint="Nhập địa chỉ email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:paddingStart="8dp"
+                android:paddingEnd="12dp"
+                android:singleLine="true"
+                android:textColor="#172D59"
+                android:textColorHint="#596B8E"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password Label -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/etPassword"
+            android:text="Mật khẩu"
+            android:textColor="#172D59"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Password Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_edittext_outline"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#263B67"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="#405477">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="password"
+                android:hint="Nhập mật khẩu"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:paddingStart="8dp"
+                android:paddingEnd="12dp"
+                android:singleLine="true"
+                android:textColor="#172D59"
+                android:textColorHint="#596B8E"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Forgot Password -->
+        <TextView
+            android:id="@+id/btnForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="2dp"
+            android:text="Quên mật khẩu?"
+            android:textColor="@color/main"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Login Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="Đăng nhập vào tài khoản EyeConnect"
+            android:text="Đăng nhập"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/main"
+            app:cornerRadius="14dp" />
+
+        <!-- Divider -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#DCE3F0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:text="Hoặc tiếp tục với"
+                android:textColor="#596B8E"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#DCE3F0" />
+
+        </LinearLayout>
+
+        <!-- Apple Login -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAppleLogin"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="16dp"
+            android:text="Tiếp tục với Apple"
+            android:textAllCaps="false"
+            android:textColor="#172D59"
+            android:textSize="16sp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="14dp"
+            app:icon="@drawable/ic_apple"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            app:iconSize="22dp"
+            app:iconTint="#172D59"
+            app:strokeColor="#7185A5"
+            app:strokeWidth="1dp" />
+
+        <!-- Google Login -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGoogleLogin"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:text="Tiếp tục với Google"
+            android:textAllCaps="false"
+            android:textColor="#172D59"
+            android:textSize="16sp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="14dp"
+            app:icon="@drawable/ic_google"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            app:iconSize="22dp"
+            app:iconTint="@null"
+            app:strokeColor="#7185A5"
+            app:strokeWidth="1dp" />
+
+        <!-- Register -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Bạn chưa có tài khoản?"
+                android:textColor="#405477"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/btnToRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingStart="6dp"
+                android:paddingEnd="4dp"
+                android:text="Đăng ký"
+                android:textColor="#174FC4"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
