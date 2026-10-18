@@ -23,22 +23,22 @@
     <fragment
         android:id="@+id/nav_support"
         android:name="com.example.eyeconnect.presentation.home.SupportFragment"
-        android:label="Hỗ trợ" />
+        android:label="Support" />
 
     <fragment
         android:id="@+id/nav_directory"
         android:name="com.example.eyeconnect.presentation.home.DirectoryFragment"
-        android:label="Danh bạ" />
+        android:label="Directory" />
 
     <fragment
-        android:id="@+id/nav_community"
-        android:name="com.example.eyeconnect.presentation.home.CommunityFragment"
-        android:label="Community" />
+        android:id="@+id/nav_money_recognition"
+        android:name="com.example.eyeconnect.presentation.home.MoneyRecognitionFragment"
+        android:label="Money Recognition" />
 
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.example.eyeconnect.presentation.home.SettingsFragment"
-        android:label="Cài đặt" />
+        android:label="Setting" />
     <fragment
         android:id="@+id/introduceFragment"
         android:name="com.example.eyeconnect.presentation.splash.IntroduceFragment"

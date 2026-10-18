@@ -9,17 +9,18 @@
     <item
         android:id="@+id/nav_ai"
         android:icon="@drawable/ic_nav_ai"
-        android:title="Be My AI" />
+        android:title="Đọc văn bản" />
+
+    <item
+        android:id="@+id/nav_money_recognition"
+        android:icon="@drawable/ic_nav_money"
+        android:title="Giá tiền" />
 
     <item
         android:id="@+id/nav_directory"
         android:icon="@drawable/ic_nav_directory"
         android:title="Danh bạ" />
 
-    <item
-        android:id="@+id/nav_community"
-        android:icon="@drawable/ic_nav_community"
-        android:title="Community" />
 
     <item
         android:id="@+id/nav_settings"
