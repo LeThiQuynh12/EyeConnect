@@ -90,4 +90,13 @@ dependencies {
     implementation("org.tensorflow:tensorflow-lite:2.14.0")
     implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
 
+    // Retrofit 2 & GSON Converter
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    // OkHttp Logging
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // timber
+    implementation("com.jakewharton.timber:timber:5.0.1")
 }
